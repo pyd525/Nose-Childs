@@ -1,16 +1,13 @@
 import random
-
+from django.forms import model_to_dict
+from dice_repository import DiceRepository
 from dice.entity.dice import Dice
-from dice.repository.dice_repository import DiceRepository
 
 
 class DiceRepositoryImpl(DiceRepository):
     __instance = None
 
-    # 빈 리스트를 생성하여 여기에 주사위 정보를 저장하려고 함
-    # 즉 이번 케이스는 rollDice()가 구동 될 때마다 diceList에 내용이 누적됨
-    # 빈 리스트를 생성하는 문법입니다.
-    __diceList = []
+    #__diceList = []
 
     MIN = 1
     MAX = 6
@@ -28,15 +25,27 @@ class DiceRepositoryImpl(DiceRepository):
 
         return cls.__instance
 
-    def rollDice(self):
-        diceNumber = random.randint(self.MIN, self.MAX)
-        dice = Dice(diceNumber)
-        # append() 붙이기를 통해서
-        # 생성자로 만든 dice를 __diceList에 추가하였습니다.
-        self.__diceList.append(dice)
+    def create(self):
+        diceNumber1 = random.randint(self.MIN, self.MAX)
+        diceNumber2 = random.randint(self.MIN, self.MAX)
+        diceResult = diceNumber1 + diceNumber2
+        dice = Dice(number = diceResult) ## 오류 생길 가능성 큼...
+
+        dice.save()
+        return model_to_dict(dice)
 
 
+        #self.__diceList.append(dice)
 
-    # 누적된 전체 리스트를 가져오게 됨
-    def acquireDiceList(self):
-        return self.__diceList
+    def findById(self, number):
+        return Dice.objects.get(number=number)
+
+
+    # E.g. __diceList = [ 3, 5 ]
+    # Player1의 game 결과 값: __diceList[0]   # 3
+    # Player2의 game 결과 값: __diceList[1]   # 5
+
+
+    #def findAll(self):
+        # db에 저장된 모든 주사위 데이터를 조회
+    #    return Dice.objects.all()  # 전부 찾기
