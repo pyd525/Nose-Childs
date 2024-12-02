@@ -6,8 +6,8 @@ class AccountRepository(ABC):
     def createName(self):
         pass
 
-    # @abstractmethod
-    # def findById(self, id):
-    #     pass
-    #
+    @abstractmethod
+    def findById(self, id):
+        pass
+
 
