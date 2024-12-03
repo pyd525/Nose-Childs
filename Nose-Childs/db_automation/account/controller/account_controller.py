@@ -2,19 +2,22 @@ from django.forms import model_to_dict
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 
-from db_automation.account.service.account_service_impl import AccountServiceImpl
+from account.service.account_service_impl import AccountServiceImpl
 
 
 class AccountController(viewsets.ViewSet):
     accountService = AccountServiceImpl.getInstance()
 
 
+
     def requestCreateName(self, request):
-        name = self.accountService.create()
+        accountName = self.accountService.create()
 
-        return Response(name, status=status.HTTP_200_OK)
+        return Response(accountName, status=status.HTTP_200_OK)
 
-    def requsstFineAccount(self,request):
+
+
+    def requestFineAccount(self,request):
         requestGetData = request.GET
         requestAccountId = requestGetData.get('accountId')
 

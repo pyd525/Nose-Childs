@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     "django_extensions",
     "corsheaders",
     "rest_framework",
+    "dice",
+    "game",
+    "account"
 ]
 
 MIDDLEWARE = [

@@ -1,5 +1,6 @@
-from dice_service import DiceService
+
 from dice.repository.dice_repository_impl import DiceRepositoryImpl
+from dice.service.dice_service import DiceService
 
 
 class DiceServiceImpl(DiceService):
@@ -22,10 +23,12 @@ class DiceServiceImpl(DiceService):
 
         return cls.__instance
 
-
+#  DiceRepositoryImpl.getInstance().create()
     def rollDice(self):
         return self.__diceRepository.create()
 
 
     def findDice(self, requestDiceId):
         return self.__diceRepository.findById(requestDiceId)
+
+

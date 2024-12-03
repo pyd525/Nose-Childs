@@ -8,8 +8,8 @@ class Dice(models.Model):
     def __str__(self):
         return f"주사위 결과: {self.number}"
 
-    def getNumber(self):
-        return self.number
+    # def getNumber(self):
+    #     return self.number
 
     class Meta:
         db_table = "dice"
