@@ -24,8 +24,8 @@ class DiceServiceImpl(DiceService):
         return cls.__instance
 
 #  DiceRepositoryImpl.getInstance().create()
-    def rollDice(self):
-        return self.__diceRepository.create()
+    def getDiceResult(self):
+        return self.__diceRepository.rollDice()
 
 
     def findDice(self, requestDiceId):

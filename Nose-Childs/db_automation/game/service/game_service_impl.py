@@ -1,11 +1,18 @@
+from fontTools.merge.util import sumLists
+
+from account.entity.account import Account
+from dice.entity.dice import Dice
+from game.entity.game import Game
 from dice.repository.dice_repository_impl import DiceRepositoryImpl
 from game.repository.game_repository_impl import GameRepositoryImpl
+from account.repository.account_repository_impl import AccountRepositoryImpl
 from game.service.game_service import GameService
-from player.repository.player_repository_impl import PlayerRepositoryImpl
-
+from dice.controller.dice_controller import DiceController
 
 class GameServiceImpl(GameService):
     __instance = None
+
+    sumList = []
 
     def __new__(cls):
         if cls.__instance is None:
@@ -13,7 +20,7 @@ class GameServiceImpl(GameService):
 
             # Service Layer에서 Repository Layer를 연결하는 방법
             cls.__instance.__gameRepository = GameRepositoryImpl.getInstance()
-            cls.__instance.__playerRepository = PlayerRepositoryImpl.getInstance()
+            cls.__instance.__accountRepository = AccountRepositoryImpl.getInstance()
             cls.__instance.__diceRepository = DiceRepositoryImpl.getInstance()
 
         return cls.__instance
@@ -25,15 +32,14 @@ class GameServiceImpl(GameService):
 
         return cls.__instance
 
-    def startDiceGame(self):
-        print("startDiceGame() called!")
-        playerNameList = self.__playerRepository.acquirePlayerNameList()
-        self.__diceRepository.rollDice()
-        eachPlayerDiceList = self.__diceRepository.rollDice()
+    def diceResultSum(self, diceList):
+        # 뭐 받아야함? DiceRepositoryImpl(DiceRepository)
+        self.__diceRepository.rollDice()  # diceList = [[2,3], [1,6]]
+        for seq in diceList:  # seq = [2,5]
+            sum = seq[0] + seq[1]
+            self.sumList.append(sum)   # sumList[0] # 첫번째 플레이어 sum 값
 
-        self.__gameRepository.start(
-            playerNameList, eachPlayerDiceList)
+        return self.sumList   # sumList = [5, 7]
 
     def checkWinner(self):
-        print("checkWinner() called!")
-        self.__gameRepository.checkWinner()
+        return

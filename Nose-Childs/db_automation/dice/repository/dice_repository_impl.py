@@ -9,7 +9,8 @@ from dice.repository.dice_repository import DiceRepository
 class DiceRepositoryImpl(DiceRepository):
     __instance = None
 
-    #__diceList = []
+    __diceList = []
+    __list = []
 
     MIN = 1
     MAX = 6
@@ -27,20 +28,24 @@ class DiceRepositoryImpl(DiceRepository):
 
         return cls.__instance
 
-    def create(self):
+
+    def rollDice(self):
         diceNumber1 = random.randint(self.MIN, self.MAX)
         diceNumber2 = random.randint(self.MIN, self.MAX)
-        diceResult = diceNumber1 + diceNumber2
-        dice = Dice(number = diceResult) ## 오류 생길 가능성 큼...
+        self.list.append(diceNumber1)  # list = [2,5]
+        self.list.append(diceNumber2)
 
-        dice.save()
-        return model_to_dict(dice)
+        self.__diceList.append(list)  #diceList = [[2,5],  ]
+
+        dice = Dice(diceNumber =  self.__diceList)
+
+        dice.save()  #  db table의 diceNumber에 [2 ,5] 이런식으로 저장됨
+        return model_to_dict(dice)  # 딕셔너리 형태로 저장
 
 
-        #self.__diceList.append(dice)
-
-    def findById(self, number):
-        return Dice.objects.get(number=number)
+        # 이 accountId
+    def findById(self, id):
+        return Dice.objects.get(id=id)
 
 
     # E.g. __diceList = [ 3, 5 ]
