@@ -3,9 +3,9 @@ from django.db import models
 
 class Account(models.Model):
 
-    id = models.AutoField(primary_key=True)
+    accountId = models.AutoField(primary_key=True)
 
-    name = models.IntegerField()
+    accountName = models.CharField(max_length=255)
 
     def __str__(self):
         return f"주사위 id: {self.accountId}, 눈금: {self.accountName}"
@@ -13,7 +13,7 @@ class Account(models.Model):
     def getAccountId(self):
         return self.accountId
 
-    def getAccountNumber(self):
+    def getAccountName(self):
         return self.accountName
 
     class Meta:

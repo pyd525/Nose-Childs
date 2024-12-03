@@ -1,7 +1,9 @@
 import random
 from django.forms import model_to_dict
-from dice_repository import DiceRepository
+
 from dice.entity.dice import Dice
+from dice.repository.dice_repository import DiceRepository
+#from dice_repository import DiceRepository
 
 
 class DiceRepositoryImpl(DiceRepository):
@@ -42,8 +44,8 @@ class DiceRepositoryImpl(DiceRepository):
 
 
     # E.g. __diceList = [ 3, 5 ]
-    # Player1의 game 결과 값: __diceList[0]   # 3
-    # Player2의 game 결과 값: __diceList[1]   # 5
+    # Player1의 game 결과 값  1, 2: __diceList[0]   # 3
+    # Player2의 game 결과 값: 3,2  __diceList[1]   # 5
 
 
     #def findAll(self):

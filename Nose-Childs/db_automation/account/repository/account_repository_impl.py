@@ -1,5 +1,5 @@
-from db_automation.account.entity.account import Account
-from db_automation.account.repository.account_repository import AccountRepository
+from account.entity.account import Account
+from account.repository.account_repository import AccountRepository
 from django.forms import model_to_dict
 
 
@@ -29,8 +29,9 @@ class AccountRepositoryImpl(AccountRepository):
 
     def createName(self):
         userInputAccountName = self.__processUserInput()
-        account = Account(string=userInputAccountName)
+        account = Account(string=userInputAccountName)  # accountName으로
         account.save()
+
 
         return model_to_dict(account)
 
