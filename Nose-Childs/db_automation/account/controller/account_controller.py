@@ -19,7 +19,7 @@ class AccountController(viewsets.ViewSet):
 
     def requestFineAccount(self,request):
         requestGetData = request.GET
-        requestAccountId = requestGetData.get('accountId')
+        requestAccountId = requestGetData.get('id')
 
         foundAccount = self.accountService.findAccount(requestAccountId)
 

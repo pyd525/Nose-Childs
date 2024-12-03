@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 class DiceService(ABC):
 
     @abstractmethod
-    def rollDice(self):
+    def getDiceResult(self):
         pass
 
     @abstractmethod

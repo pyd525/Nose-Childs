@@ -35,7 +35,7 @@ class AccountRepositoryImpl(AccountRepository):
 
         return model_to_dict(account)
 
-    def findById(self, acountId):
-        return Account.objects.get(acountId=acountId)
+    def findById(self, id):
+        return Account.objects.get(id=id)
 
 

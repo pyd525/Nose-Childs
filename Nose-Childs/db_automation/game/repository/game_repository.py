@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 class GameRepository(ABC):
 
     @abstractmethod
-    def start(self, playerNameList, eachPlayerDiceList):
+    def diceGame(self, diceList):  # sum
         pass
 
     @abstractmethod
