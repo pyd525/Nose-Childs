@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-
-class PlayerRepository(ABC):
+# CustomerRepository에서 customer의 행위에 대해 뭔지 먼저 알리는(?)
+class CustomerRepository(ABC):
 
     @abstractmethod
     def create(self, nickname):
@@ -10,4 +10,4 @@ class PlayerRepository(ABC):
     @abstractmethod
     def findById(self, id):
         pass
-    
+

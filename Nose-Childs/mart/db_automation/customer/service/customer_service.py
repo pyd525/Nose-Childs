@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 
 
-class PlayerService(ABC):
+class CustomerService(ABC):
 
     @abstractmethod
-    def createPlayer(self, nickname):
+    def createCustomer(self, nickname):
         pass
