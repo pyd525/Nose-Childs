@@ -41,5 +41,19 @@ class GameServiceImpl(GameService):
 
         return self.sumList   # sumList = [5, 7]
 
+
     def checkWinner(self):
+        A = self.sumList[0]
+        B= self.sumList[1]
+
+
+        if A > B:
+            print("A가 승리하였습니다.")
+        elif A < B:
+             print("B가 승리하였습니다.")
+        else:
+            print("무승부 입니다.")
+
+
         return
+
