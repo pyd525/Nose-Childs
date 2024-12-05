@@ -41,6 +41,7 @@ class GameServiceImpl(GameService):
 
         return self.sumList   # sumList = [5, 7]
 
+
     def checkWinner(self):
         #A = self.sumList[0]
         #B = self.sumList[1]
