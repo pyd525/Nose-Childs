@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     "django_extensions",
     "corsheaders",
     "rest_framework",
+    'customer',
+    'fruit_market',
+    'order'
 ]
 
 MIDDLEWARE = [
