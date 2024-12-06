@@ -22,3 +22,6 @@ class DiceRepository(ABC):
     @abstractmethod
     def findAll(self):
         pass
+        
+        
+
