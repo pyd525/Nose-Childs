@@ -22,5 +22,10 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("customer/", include('customer.urls')),
     path("fruitMart/", include('fruitMart.urls')),
-    path("order/", include('order.urls')),
+    #path("order/", include('order.urls')),
 ]
+
+
+
+# python manage.py makemigrations
+# python manage.py migrate
