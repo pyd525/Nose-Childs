@@ -1,16 +1,16 @@
 from abc import ABC, abstractmethod
 
 
-class DiceService(ABC):
+class FruitMartService(ABC):
 
     @abstractmethod
-    def rollDice(self, gameId, playerId):
+    def stockFruit(self):
         pass
 
     @abstractmethod
-    def findDice(self, requestDiceId):
+    def findFruitId(self, requestFruitMartId):
         pass
 
     @abstractmethod
-    def findEveryDice(self):
+    def findEveryFruit(self):
         pass
