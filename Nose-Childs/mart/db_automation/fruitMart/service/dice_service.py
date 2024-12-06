@@ -14,5 +14,3 @@ class DiceService(ABC):
     @abstractmethod
     def findEveryDice(self):
         pass
-
-

@@ -45,8 +45,8 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     'customer',
-    #'fruitMart',
-    #'order'
+    'fruit_market',
+    'order'
 ]
 
 MIDDLEWARE = [

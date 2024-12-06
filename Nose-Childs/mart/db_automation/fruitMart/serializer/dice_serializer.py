@@ -1,15 +1,10 @@
-"""""
-
 from rest_framework import serializers
 
-from fruit_mart.entity.fruit_mart import FruitMart
+from dice.entity.dice import Dice
 
 
 class DiceSerializer(serializers.ModelSerializer):
     class Meta:
-        model = FruitMart
+        model = Dice
         fields = ['id', 'number']
         # fields = ['number']
-        
-        
-        """""
