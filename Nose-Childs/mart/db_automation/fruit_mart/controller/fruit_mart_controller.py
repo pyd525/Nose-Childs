@@ -3,13 +3,14 @@ from django.shortcuts import render
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 
-from dice.serializer.dice_serializer import DiceSerializer
-from dice.service.dice_service_impl import DiceServiceImpl
+from fruit_mart.serializer.fruit_mart_serializer import FruitMartSerializer
+# Serializer 왜있는지 일단 모르겠지만 있으니까 했음.
+from fruit_mart.service.fruit_mart_service_impl import FruitMartServiceImpl
 
 
 # Create your views here.
 class DiceController(viewsets.ViewSet):
-    diceService = DiceServiceImpl.getInstance()
+   diceService = FruitMartServiceImpl.getInstance()
 
     def requestRollDice(self, request):
         requestGetData = request.GET
