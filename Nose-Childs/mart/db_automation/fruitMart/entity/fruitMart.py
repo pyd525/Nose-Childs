@@ -21,4 +21,4 @@ class FruitMart(models.Model):
         return self.counter
 
     class Meta:
-        db_table = "Fruit Mart"
+        db_table = "FruitMart"
